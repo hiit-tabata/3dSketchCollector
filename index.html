@@ -32,6 +32,7 @@
         <a-asset-item id="logoobj" src="assets/models/logo.obj"></a-asset-item>
         <a-asset-item id="logomtl" src="assets/models/logo.mtl"></a-asset-item>
         <a-asset-item id="uiobj" src="assets/models/ui.obj"></a-asset-item>
+        <a-asset-item id="ref_obj" src="assets/models/airplane_0627.nml.obj"></a-asset-item>
         <a-asset-item id="hitEntityObj" src="assets/models/teleportHitEntity.obj"></a-asset-item>
         <audio id="ui_click0" src="https://cdn.aframe.io/a-painter/sounds/ui_click0.ogg">
         <audio id="ui_click1" src="https://cdn.aframe.io/a-painter/sounds/ui_click1.ogg">
@@ -43,7 +44,26 @@
       <a-light type="point" light="color: #fff; intensity:0.6" position="3 10 1"></a-light>
       <a-light type="point" light="color: #fff; intensity:0.2" position="-3 -10 0"></a-light>
       <a-light type="hemisphere" groundColor="#888" intensity="0.8"></a-light>
-      <a-entity id="logo" obj-model="obj: #logoobj; mtl: #logomtl"></a-entity>
+
+
+      <!-- <a-box color="rgba(255,255,255,0.1)" depth="1" height="1" width="1"></a-box> -->
+      <a-plane color="#CCC" height="1" width="1" position="0 0.5 -0.5" material="transparent: true; opacity: 0.5; side: back"  ></a-plane>
+      <a-plane color="#CCC" height="1" width="1" position="0 0.5 -0.5" material="transparent: true; opacity: 0.5; side: front" ></a-plane>
+
+      <a-plane color="#CCC" height="1" width="1" position="0 0.5 0.5"  material="transparent: true; opacity: 0.5; side: back"  ></a-plane>
+      <a-plane color="#CCC" height="1" width="1" position="0 0.5 0.5"  material="transparent: true; opacity: 0.5; side: front" ></a-plane>
+
+
+      
+      <a-plane color="#CCC" height="1" width="1" position="-0.5 0.5 0" material="transparent: true; opacity: 0.5; side: back"   rotation="0 -90 0"></a-plane>
+      <a-plane color="#CCC" height="1" width="1" position="0.5 0.5 0"  material="transparent: true; opacity: 0.5; side: front"  rotation="0 -90 0"></a-plane>
+      <!-- <a-plane color="#CCC" height="2" width="2" material="side: front" position="0 1 0" rotation="0 -90 0"></a-plane> -->
+      
+      <a-entity scale="1 1 1" position="0 0.5 0" obj-model="obj: #ref_obj;" rotation="-90 0 0" material="transparent: true; opacity: 0.5;""></a-entity>
+      <!-- <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1"></a-entity> -->
+
+
+      <a-entity id="logo" obj-model="obj: #logoobj; mtl: #logomtl" color="#ffffff"></a-entity>
       <a-entity id="ground"
                 geometry="primitive: box; width: 12; height: 0.01; depth: 12"
                 material="shader: flat; src: #floor">
