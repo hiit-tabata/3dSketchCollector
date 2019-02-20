@@ -202,7 +202,46 @@ AFRAME.registerSystem('painter', {
 
     var baseUrl = 'https://aframe.io/a-painter/?url=';
 
-    var dataviews = this.brushSystem.getBinary();
+
+    var dataviews = this.brushSystem.getJSON();
+
+    var saveByteArray = (function () {
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        return function (data, name) {
+          let uri="data:application/json,"+ encodeURIComponent(JSON.stringify(data))
+          var downloadLink = document.createElement("a");
+          downloadLink.href = uri;
+          downloadLink.download = "data.json";
+
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+
+          // myWindow = window.open("data:application/json," + encodeURIComponent(JSON.stringify(data)), "data.json");
+          // , "_blank"
+            // var a = document.createElement('a');
+            // a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(JSON.stringify(data)));
+            // a.setAttribute('download', name);
+            // a.click()
+
+            // let url = window.URL.createObjectURL(data);
+            // a.href = url;
+            // a.download = name;
+            // a.target = "_blank"
+            // a.click();
+            // window.open("data:text/json," + encodeURIComponent(data), "_blank");
+            // window.URL.revokeObjectURL(url);
+        };
+    }());
+    
+    saveByteArray(dataviews, 'example.txt');
+    if (success) { success(); }
+    
+    self.sceneEl.emit('drawing-upload-completed', {url: "hihihihi"});
+    return 
+
     var blob = new Blob(dataviews, {type: 'application/octet-binary'});
     var uploader = 'uploadcare'; // or 'fileio'
     if (uploader === 'fileio') {

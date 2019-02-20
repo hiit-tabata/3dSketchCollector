@@ -197,13 +197,13 @@ AFRAME.registerComponent('ui', {
         }
         break;
       }
-      case name === 'copy': {
-        if (!this.pressedObjects[name]) {
-          this.copyBrush();
-          this.playSound('ui_click1');
-        }
-        break;
-      }
+      // case name === 'copy': {
+      //   if (!this.pressedObjects[name]) {
+      //     this.copyBrush();
+      //     this.playSound('ui_click1');
+      //   }
+      //   break;
+      // }
       case name === 'hue': {
         this.onHueDown(position);
         break;
@@ -234,13 +234,13 @@ AFRAME.registerComponent('ui', {
     this.pressedObjects[name] = object;
   },
 
-  copyBrush: function () {
-    var brush = this.el.getAttribute('brush');
-    this.handEl.setAttribute('brush', 'brush', brush.brush);
-    this.handEl.setAttribute('brush', 'color', brush.color);
-    this.handEl.setAttribute('brush', 'size', brush.size);
-    this.colorHasChanged = true;
-  },
+  // copyBrush: function () {
+  //   var brush = this.el.getAttribute('brush');
+  //   this.handEl.setAttribute('brush', 'brush', brush.brush);
+  //   this.handEl.setAttribute('brush', 'color', brush.color);
+  //   this.handEl.setAttribute('brush', 'size', brush.size);
+  //   this.colorHasChanged = true;
+  // },
 
   handleButtonUp: function () {
     var pressedObjects = this.pressedObjects;
