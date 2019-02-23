@@ -1,4 +1,6 @@
-/* globals AFRAME THREE */
+// /* globals AFRAME THREE */
+
+
 var sharedBufferGeometryManager = require('../sharedbuffergeometrymanager.js');
 var onLoaded = require('../onloaded.js');
 
@@ -316,6 +318,6 @@ var onLoaded = require('../onloaded.js');
       definition.materialOptions.converter = window.atlas.getUVConverters(null);
     }
 
-    AFRAME.registerBrush(definition.name, Object.assign({}, line, {materialOptions: definition.materialOptions}), {thumbnail: definition.thumbnail, maxPoints: 3000});
+    AFRAME.registerBrush(definition.name, Object.assign({}, line, {materialOptions: definition.materialOptions}), {thumbnail: definition.thumbnail, maxPoints: 3000});    
   }
 })();
